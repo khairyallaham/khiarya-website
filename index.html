@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khairya AL laham official webpage</title>
+    <style>
+        /* Artistic Pink Palette Design System */
+        :root {
+            --primary-pink: #d946ef;       /* Vibrant creative pink accents */
+            --deep-rose: #be185d;          /* Sophisticated dark pink for headers */
+            --blush-bg: #fdf2f8;           /* Soft blush background canvas */
+            --card-white: #ffffff;
+            --sidebar-width: 340px;
+            --border-soft: #fbcfe8;        /* Delicate pink borders */
+            --text-main: #4c0519;          /* Deep maroon/rose for clear readability */
+            --text-muted: #9d174d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Georgia, serif;
+        }
+
+        body, html {
+            height: 100%;
+            overflow: hidden;
+            background-color: var(--blush-bg);
+            color: var(--text-main);
+        }
+
+        /* --- Artistic Header Section --- */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #ffffff 0%, #fff1f2 100%);
+            padding: 15px 30px;
+            border-bottom: 3px solid var(--border-soft);
+            height: 110px;
+            box-shadow: 0 4px 20px rgba(217, 70, 239, 0.06);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Top Left Logo placement */
+        .logo-container {
+            flex: 0 0 var(--sidebar-width);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container img {
+            max-height: 80px;
+            max-width: 100%;
+            object-fit: contain;
+            border-radius: 8px; /* Elegant subtle framing */
+        }
+
+        /* Top Center Display Title */
+        .title-container {
+            flex: 1;
+            text-align: center;
+        }
+
+        .title-container h1 {
+            color: var(--deep-rose);
+            font-size: 2.2rem;
+            font-weight: 300; /* Lighter weight for an artistic look */
+            letter-spacing: 1px;
+            text-transform: capitalize;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Structural spacer to perfectly balance out the sidebar width */
+        .header-spacer {
+            flex: 0 0 var(--sidebar-width);
+        }
+
+        /* --- Main Layout Split Container --- */
+        .main-container {
+            display: flex;
+            height: calc(100% - 110px);
+            width: 100%;
+        }
+
+        /* --- Left Navigation Sidebar Menu --- */
+        aside {
+            width: var(--sidebar-width);
+            background-color: var(--card-white);
+            border-right: 2px solid var(--border-soft);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            box-shadow: 4px 0 15px rgba(217, 70, 239, 0.03);
+        }
+
+        .sidebar-header {
+            padding: 20px 25px;
+            background: linear-gradient(to right, #fff1f2, #fff);
+            border-bottom: 1px solid var(--border-soft);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+        }
+
+        .file-list {
+            list-style: none;
+            overflow-y: auto;
+            flex: 1;
+            padding: 10px 0;
+        }
+
+        .file-item {
+            padding: 16px 25px;
+            margin: 4px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        /* Styled artistic indicator icon instead of raw file name extension labels */
+        .file-item::before {
+            content: "✨";
+            margin-right: 14px;
+            font-size: 1rem;
+            opacity: 0.7;
+            transition: transform 0.3s ease;
+        }
+
+        .file-item:hover {
+            background-color: #fdf2f8;
+            color: var(--primary-pink);
+            padding-left: 30px;
+        }
+        
+        .file-item:hover::before {
+            transform: scale(1.2) rotate(15deg);
+            opacity: 1;
+        }
+
+        .file-item.active {
+            background-color: #fce7f3;
+            color: var(--deep-rose);
+            font-weight: 600;
+            box-shadow: inset 3px 0 0 var(--deep-rose);
+        }
+
+        /* --- Main Document Display Frame Window --- */
+        main {
+            flex: 1;
+            height: 100%;
+            background-color: #f5f5f5;
+            position: relative;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: #ffffff;
+        }
+
+        /* Frame Viewport Entry Greeting Layer */
+        .no-selection {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 30px;
+            background: radial-gradient(circle, #ffffff 0%, var(--blush-bg) 100%);
+        }
+
+        .no-selection .art-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            opacity: 0.8;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .no-selection h2 {
+            margin-bottom: 10px;
+            color: var(--deep-rose);
+            font-weight: 400;
+            font-size: 1.6rem;
+        }
+
+        .no-selection p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Frame -->
+    <header>
+        <div class="logo-container">
+            <img src="assets/logo.jpg" alt="Official Logo">
+        </div>
+        <div class="title-container">
+            <h1>Khairya AL laham official webpage</h1>
+        </div>
+        <div class="header-spacer"></div>
+    </header>
+
+    <!-- Main Workspace Application Wrapper -->
+    <div class="main-container">
+        
+        <!-- Left Sidebar Document Selection Navigation -->
+        <aside>
+            <div class="sidebar-header">Document Collections</div>
+            <ul class="file-list" id="pdfFileList">
+                <!-- Javascript will cleanly inject your asset documents list here -->
+            </ul>
+        </aside>
+
+        <!-- Main Display Content Window Tab -->
+        <main id="viewPane">
+            <div class="no-selection" id="welcomeMessage">
+                <div class="art-icon">🌸</div>
+                <h2>Welcome to the Portfolio</h2>
+                <p>Select an archive document from the sidebar to view its contents.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Interface Script Controller Logic -->
+    <script>
+        // Folder asset array mapping files exactly matching your local directories
+        const pdfFiles = [
+            "Arabic official exam BR 2022 S1.pdf",
+            "Chemistry official exam LS EN 2019-1.pdf",
+            "Math official exam BR EN 2016-1.pdf",
+            "Math official exam BR EN 2016-2.pdf",
+            "Math official exam BR EN 2017-1.pdf",
+            "Math official exam BR EN 2017-2.pdf"
+        ];
+
+        const fileListContainer = document.getElementById('pdfFileList');
+        const viewPane = document.getElementById('viewPane');
+
+        // Dynamically build individual clickable sidebar list entry items
+        pdfFiles.forEach((filename) => {
+            const li = document.createElement('li');
+            li.className = 'file-item';
+            
+            // Displays a clean, readable text title to users (strips away the trailing text ".pdf")
+            li.textContent = filename.replace('.pdf', '');
+            
+            // Handle active frame presentation selections 
+            li.addEventListener('click', () => {
+                // Clear active layout highlights across lists
+                document.querySelectorAll('.file-item').forEach(item => item.classList.remove('active'));
+                
+                // Set highlight onto current selected item row 
+                li.classList.add('active');
+                
+                // Embed target PDF directly path matching your relative local structure inside "assets/"
+                const assetFilePath = `assets/${filename}`;
+                viewPane.innerHTML = `<iframe src="${assetFilePath}"></iframe>`;
+            });
+
+            fileListContainer.appendChild(li);
+        });
+    </script>
+</body>
+</html>
